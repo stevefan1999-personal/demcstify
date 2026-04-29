@@ -1,0 +1,13 @@
+build/
+.gradle/
+ground_truth
+.omc
+.omx
+# Reconstructed Minecraft source — never committed. Build glue at subprojects/*/ root is fine.
+# The src/ directory is preserved in git via a .gitkeep marker so the layout is visible to fresh clones,
+# but every file under it is ignored.
+subprojects/*/src/**
+!subprojects/*/src/.gitkeep
+subprojects/*/build/
+
+state
