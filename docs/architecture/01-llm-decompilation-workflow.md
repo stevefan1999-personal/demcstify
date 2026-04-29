@@ -55,13 +55,13 @@ flowchart TD
 sequenceDiagram
   autonumber
   participant Agent as LLM agent
-  participant DB as state/progress.db
+  participant DB as Progress DB
   participant Src as Local reconstructed source
-  participant Gradle as Gradle/Javac
-  participant Diff as bytecode-diff + verdict-shim
-  participant Jar as ground_truth/26.1.2.jar
+  participant Gradle as Gradle Javac
+  participant Diff as Bytecode diff and verdict shim
+  participant Jar as Ground truth JAR
 
-  Agent->>DB: BEGIN IMMEDIATE; claim lowest-layer work item
+  Agent->>DB: Begin immediate transaction and claim lowest-layer work item
   DB-->>Agent: work_id, attempt_id, class_fqn, role
   Agent->>Src: read and edit only the claimed source scope
   Agent->>Gradle: compile affected subproject with -Xlint:all -Werror -parameters
